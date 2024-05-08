@@ -1,96 +1,107 @@
-<?php
-session_start();
-// Check if the user is not logged in, redirect to the login page
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: index.html');
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Drive</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- IBM Plex Sans Thai Bold font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@700&display=swap">
-  <style>
-    body {
-        font-family: 'IBM Plex Sans Thai', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #292929; /* Dark grayish background */
-        color: #fff; /* White text color */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #292929;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .container {
-        width: 400px; /* Set width to make it rectangular */
-        padding: 20px;
-        background-color: #333; /* Dark gray container background */
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Light shadow */
-    }
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
 
-    .form-label {
-        color: #ccc; /* Light gray form label */
-    }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    .form-control {
-        background-color: #444; /* Dark gray form input background */
-        color: #fff; /* White form input text color */
-    }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
 
-    .btn-primary {
-        background-color: #8a2be2; /* Purple button color */
-        border-color: #8a2be2; /* Purple button border color */
-    }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #444;
+            color: #fff;
+        }
 
-    .btn-primary:hover {
-        background-color: #8000ff; /* Darker purple hover color */
-        border-color: #8000ff; /* Darker purple hover border color */
-    }
-</style>
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #8a2be2;
+            color: #fff;
+            cursor: pointer;
+        }
 
+        .btn:hover {
+            background-color: #8000ff;
+        }
+
+        .create-account {
+            text-align: center;
+        }
+
+        .create-account a {
+            color: #8a2be2;
+            text-decoration: none;
+        }
+
+        .create-account a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="text-center mb-4">*welcome*</h1>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
+    <div class="container">
+        <h2>Login</h2>
         <form id="loginForm">
-          <div class="mb-3">
-            <label for="username" class="form-label">username</label>
-            <input type="text" class="form-control" id="username" name="username" required>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Login</button>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
         </form>
-      </div>
+        <div class="create-account">
+            <p>Don't have an account? <a href="https://forms.gle/TDYxhDoanPjuSsm78">Create one</a></p>
+        </div>
     </div>
-  </div>
 
-  <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-      // Check if the username and password are correct
-      if (username === 'admin' && password === 'password') {
-        // Redirect to menu.html
-        window.location.href = 'menu.html';
-      } else {
-        alert('Incorrect username or password. Please try again.');
-      }
-    });
-  </script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            // Check if the username and password are correct
+            if (username === 'admin' && password === 'password') {
+                // Redirect to menu.html
+                window.location.href = 'menu.html';
+            } else {
+                alert('Incorrect username or password. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>
