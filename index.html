@@ -18,22 +18,43 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@700&display=swap">
   <style>
     body {
-      font-family: 'IBM Plex Sans Thai', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f7f7f7;
+        font-family: 'IBM Plex Sans Thai', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #292929; /* Dark grayish background */
+        color: #fff; /* White text color */
     }
 
     .container {
-      width: 400px; /* Set width to make it rectangular */
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 400px; /* Set width to make it rectangular */
+        padding: 20px;
+        background-color: #333; /* Dark gray container background */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Light shadow */
     }
-  </style>
+
+    .form-label {
+        color: #ccc; /* Light gray form label */
+    }
+
+    .form-control {
+        background-color: #444; /* Dark gray form input background */
+        color: #fff; /* White form input text color */
+    }
+
+    .btn-primary {
+        background-color: #8a2be2; /* Purple button color */
+        border-color: #8a2be2; /* Purple button border color */
+    }
+
+    .btn-primary:hover {
+        background-color: #8000ff; /* Darker purple hover color */
+        border-color: #8000ff; /* Darker purple hover border color */
+    }
+</style>
+
 </head>
 <body>
   <div class="container">
